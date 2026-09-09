@@ -4,22 +4,24 @@ import java.util.Scanner;
 
 public class area {
 
-	public static void main(String[] args) {
-		Scanner leia = new Scanner(System.in);
-		
-		System.out.println("Informe o valor da base do triângulo: ");
-		int base = Integer.parseInt(leia.nextLine());
-		
-		System.out.println("Informe o valor da altura do triângulo: ");
-		int altura = Integer.parseInt(leia.nextLine());
-		
-		do  {
-			System.out.println("Erro!! Informe a medida novamente");
-		}while (base <= 0 && altura <= 0);
-		
-		System.out.println("A área do triângulo é igual a : " + (base * altura)/2);
-	
+	public class AreaTriangulo {
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+	        double base, altura;
 
+	        do {
+	            System.out.print("Base: "); base = sc.nextDouble();
+	            System.out.print("Altura: "); altura = sc.nextDouble();
+
+	            if (base <= 0 || altura <= 0) {
+	                System.out.println("Erro: as medidas devem ser maiores que zero.");
+	            }
+
+	        } while (base <= 0 || altura <= 0);
+
+	        System.out.printf("Area: %.2f%n", base * altura / 2);
+
+	        sc.close();
+	    }
 	}
-
 }

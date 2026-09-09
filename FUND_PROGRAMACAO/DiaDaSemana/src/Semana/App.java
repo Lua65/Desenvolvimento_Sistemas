@@ -39,6 +39,9 @@ public class App {
 				System.out.println("Sábado");
 				break;
 				
+			default:
+				System.out.println("Opção inválida");
+				
 		}
 		
 
