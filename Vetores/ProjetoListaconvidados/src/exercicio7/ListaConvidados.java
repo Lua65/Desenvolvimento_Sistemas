@@ -7,49 +7,81 @@ public class ListaConvidados {
 
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
-		ArrayList <String> convidados = new ArrayList<>(); 
-		
-		System.out.println("---- Escolha uma opção ----"
-				+ "1 - Adicionar convidado"
-				+ "2 - Alterar convidado"
-				+ "3 - Remover convidado"
-				+ "4 - Procurar convidado"
-				+ "5 - Exibir convidados"
-				+ "6 - Encerrar");
+		ArrayList<String> convidados = new ArrayList<>();
+
+		int opcao;
+
 		do {
-			System.out.println("Informe a opção desejada");
-			int opcao = leia.nextInt();
-			String nome;
-			
-			switch (opcao){
-				case 1: 
-					System.out.println("Informe o nome do convidado: ");
-					convidados.add(nome);
-					break;
-				
-				case 2:
-					System.out.println("Informe a posição do convidado: ");
-					int posicao = Integer.parseInt(leia.nextLine());
-					
-					if(convidados.isEmpty()) {
-						String novoNome;
-						convidados.add(novoNome);
-					} else {
-						System.out.print("Posição invalida!");
-					}
-					break;
-					
-				case 3:
-					System.out.print("Nome que deseja procurar: ");
-					String nomeProcurado = leia.nextLine();
-					
-					int
-					
-				
-					
-						} 
-		    } while (convidados);
+
+			System.out.println("1-Adicionar 2-Alterar 3-Remover 4-Procurar 5-Exibir 6-Sair");
+			opcao = Integer.parseInt(leia.nextLine());
+
+			switch (opcao) {
+
+			case 1:
+				System.out.print("Nome do convidado: ");
+				String nome = leia.nextLine();
+
+				convidados.add(nome);
+				break;
+
+			case 2:
+				System.out.print("Posicao do convidado: ");
+				int posicao = Integer.parseInt(leia.nextLine());
+
+				System.out.print("Novo nome: ");
+				String novoNome = leia.nextLine();
+
+				if (posicao >= 0 && posicao < convidados.size()) {
+					convidados.set(posicao, novoNome);
+				} else {
+					System.out.println("Posicao invalida");
+				}
+				break;
+
+			case 3:
+				System.out.print("Nome do convidado: ");
+				String nomeRemover = leia.nextLine();
+
+				if (convidados.contains(nomeRemover)) {
+					convidados.remove(nomeRemover);
+				} else {
+					System.out.println("Nao encontrado");
+				}
+				break;
+
+			case 4:
+				System.out.print("Nome para procurar: ");
+				String nomeProcurado = leia.nextLine();
+
+				int posicaoEncontrada = convidados.indexOf(nomeProcurado);
+
+				if (posicaoEncontrada >= 0) {
+					System.out.println("Posicao: " + posicaoEncontrada);
+				} else {
+					System.out.println("Nao encontrado");
+				}
+				break;
+
+			case 5:
+				System.out.println("Lista de convidados:");
+
+				for (String convidado : convidados) {
+					System.out.println(convidado);
+				}
+				break;
+
+			case 6:
+				System.out.println("Programa encerrado.");
+				break;
+
+			default:
+				System.out.println("Opcao invalida.");
+			}
+
+		} while (opcao != 6);
+
+		leia.close();
 	}
 
 }
-
