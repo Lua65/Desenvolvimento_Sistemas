@@ -36,6 +36,10 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 	
+	public void exibirDados() {
+		System.out.printf("Produto: %s | Preço: R$%.2f | Quantidade: %d%n%n", nome, preco, quantidade);;
+	}
+	
 	
 	
 }
